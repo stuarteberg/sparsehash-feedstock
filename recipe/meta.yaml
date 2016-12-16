@@ -13,12 +13,23 @@ source:
 
 build:
     number: 0
-    skip: true  # [win]
+    features:
+        - vc9   # [win and py27]
+        - vc10  # [win and py34]
+        - vc14  # [win and py35]
 
 requirements:
     build:
+        - python  # [win]
+        - vc 9  # [win and py27]
+        - vc 10  # [win and py34]
+        - vc 14  # [win and py35]
         - toolchain
-        - pkg-config
+        - pkg-config  # [not win]
+    run:
+        - vc 9  # [win and py27]
+        - vc 10  # [win and py34]
+        - vc 14  # [win and py35]
 
 test:
     commands:
@@ -27,6 +38,10 @@ test:
         - test -r "${PREFIX}/include/sparsehash/internal"  # [unix]
         - test -r "${PREFIX}/include/google/"  # [unix]
         - test -r "${PREFIX}/include/google/sparsehash"  # [unix]
+        - if not exist %LIBRARY_INC%\sparsehash exit 1  # [win]
+        - if not exist %LIBRARY_INC%\sparsehash\internal exit 1  # [win]
+        - if not exist %LIBRARY_INC%\google exit 1  # [win]
+        - if not exist %LIBRARY_INC%\google\sparsehash exit 1  # [win]
 
 about:
     home: https://github.com/sparsehash/sparsehash
@@ -36,3 +51,4 @@ about:
 extra:
     recipe-maintainers:
         - vgauthier
+        - edisongustavo
