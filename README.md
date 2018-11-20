@@ -3,11 +3,11 @@ About sparsehash
 
 Home: https://github.com/sparsehash/sparsehash
 
-Package license: BSD 3-Clause
+Package license: BSD-3-Clause
 
 Feedstock license: BSD 3-Clause
 
-Summary: Sparsehash libarry is an extremely memory-efficient hash_map implementation.
+Summary: Sparsehash libarry is an extremely memory-efficient hash_map implementation
 
 
 
