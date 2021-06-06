@@ -14,6 +14,7 @@ build:
 requirements:
   build:
     - pkg-config  # [not win]
+    - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
 
